@@ -1,39 +1,184 @@
-DTS_num	CDC_num
-DTS2025031719293	CDC-GEN-N-333
-DTS2025031443906	CDC-GEN-N-339
-DTS2025031823919	CDC-GEN-N-344
-DTS2025031824022	CDC-GEN-N-345
-DTS2025031429354	CDC-GEN-N-348
-DTS2025031821822	CDC-GEN-N-349
-DTS2025031815212	CDC-GEN-N-351
-DTS2025031717618	CDC-GEN-N-362
-DTS2025031423262	CDC-GEN-N-363
-DTS2025031442272	CDC-GEN-N-364
-DTS2025031440029	CDC-GEN-N-374
-DTS2025031715101	CDC-GEN-N-382
-DTS2025031437462	CDC-GEN-N-397
-DTS2025031459480	CDC-GEN-N-402
-DTS2025031713925	CDC-GEN-N-408
-DTS2025031429690	CDC-GEN-N-417
-DTS2025031824151	CDC-GEN-N-418
-DTS2025031458302	CDC-GEN-N-421
-DTS2025031824110	CDC-GEN-N-424
-DTS2025031725937	CDC-GEN-N-428
-DTS2025031824024	CDC-GEN-N-429
-DTS2025031823944	CDC-GEN-N-430
-DTS2025031460413	CDC-GEN-N-437
-DTS2025031458966	CDC-GEN-N-447
-DTS2025031721196	CDC-GEN-N-455
-DTS2025031458552;DTS2025031453541	CDC-GEN-N-458
-DTS2025031722089	CDC-GEN-N-460
-DTS2025031445332	CDC-GEN-N-461
-DTS2025031327930	CDC-GEN-N-464
-DTS2025031824617	CDC-GEN-N-465
-DTS2025031713776	CDC-GEN-N-467
-DTS2025031824368	CDC-GEN-N-470
-DTS2025031825727	CDC-GEN-N-471
-DTS2025031824314	CDC-GEN-N-474
-DTS2025031449113	CDC-GEN-N-475
-DTS2025031449113	CDC-GEN-N-477
-DTS2025031820782	CDC-GEN-N-479
-DTS2025031723831	CDC-GEN-N-483
+
+/*
+DTS2025031443906
+Author: ZWL
+Description:  TOP/cfg_rsp_err_rec被ecdc推断为常值，但还是推断了同步reset
+Path: missing-Reset_info01-sync_reset-002（会报TOP/rs_load_m[81, 10]为同步reset）
+Path: missing-Reset_info01-sync_reset-003（会报TOP/rs_load_m[81]为同步reset，漏报TOP/rs_load_m[10]）
+下面的为case 002；003的只需要在TOP的这个module最后加上：
+需要走增加定义input rsp_vld,output reg rsp_hop
+always @（posedge clk)begin
+    if(req_cmd_vld)
+        rsp_hop <= 1'b1;
+    else if (rsp_vld && rsp_hop)
+        rsp_hop <= 1'b0;
+end
+*/
+module TOP#(
+ parameter QCP_REQ_ROP_W = 6
+ , QCP_REQ_TSIZE_W = 7
+ , QCP_REQ_ADDR_W = 20
+ , QCP_REQ_DID_W = 5
+ , QCP_REQ_CTIDX_W = 4
+ , QCP_REQ_OPC_W = 2
+ , QCP_REQ_SF_W = 4
+ , QCP_REQ_BURST_W = 1
+ , QCP_RSP_OPC_W = 4
+,  PLD_W = 8
+ , QCP_RSP_CTIDX_W = 5
+,  FIFO_WIDTH = 32
+ , QCP_RSP_TSIZE_W = 7
+ , QCP_RSP_ADDR_W = 20
+ ,
+localparam WA_QCP_REQ_PLD_W = QCP_REQ_DID_W
+ + QCP_REQ_CTIDX_W
+ + QCP_REQ_OPC_W
+ + QCP_REQ_SF_W
+ + QCP_REQ_BURST_W
+ + QCP_REQ_ADDR_W
+ + QCP_REQ_TSIZE_W
+ + 27 
+ + 4 ,
+localparam WA_QCP_REQ_PACK_W = 1 
+ +1
+ +QCP_REQ_ROP_W
+ +WA_QCP_REQ_PLD_W ,
+localparam LOCAL_REQ_FIFO_W = WA_QCP_REQ_PACK_W 
+)(
+input cfg_rsp_err,wreq_access,cfg_rsp_vld,
+input valid_s,ready_m,
+input reset_n,
+input clk,
+input [LOCAL_REQ_FIFO_W -1:0] pload_s,
+input req_block_n,
+output valid_m,
+output wire ready_s,
+output reg cfg_rsp_err_rec
+);
+wire [PLD_W-1:0]pload_m;
+wire [WA_QCP_REQ_PACK_W -1:0]req_pack;
+wire [WA_QCP_REQ_PLD_W -1:0] req_pld ;
+wire req_hop ;
+wire req_top ;
+wire [QCP_REQ_ROP_W -1:0] req_rop ;
+wire [4 -1:0] req_be ;
+wire [32 -1:0] req_data ;
+wire [QCP_REQ_TSIZE_W -1:0] req_tsize ;
+wire [QCP_REQ_ADDR_W -1:0] req_addr ;
+wire req_burst ;
+wire [LOCAL_REQ_FIFO_W -1:0]local_req_fifo_rdata;
+wire [QCP_REQ_SF_W -1:0] req_sf ;
+wire [QCP_REQ_OPC_W -1:0] req_opc ;
+wire [QCP_REQ_CTIDX_W -1:0] req_ctidx ;
+wire [QCP_REQ_DID_W -1:0] req_did ;
+wire req_wcmd_vld;
+wire req_vld ;
+wire req_type ;
+wire local_req_fif0_avl ; 
+wire req_cmd_vld ;
+wire req_wrap ;
+reg [QCP_REQ_SF_W -1:0] req_sf_hold ;
+reg [QCP_REQ_TSIZE_W -1:0] req_tsize_hold ;
+reg req_wrap_hold ;
+reg req_type_hold ;
+reg [QCP_RSP_TSIZE_W-1:0]rsp_tsize;
+reg [QCP_RSP_TSIZE_W-1:0]wrsp_addr;
+reg rsp_burst;
+wire [LOCAL_REQ_FIFO_W-1:0]rdata;
+wire [LOCAL_REQ_FIFO_W-1:0]rs_load_m;
+reg [QCP_RSP_OPC_W-1:0]rsp_opc;
+reg [QCP_RSP_CTIDX_W-1:0]rsp_ctidx;
+ QIC_CBB_RS_FWD #(
+ .PLD_W (LOCAL_REQ_FIFO_W ) 
+ ) U_QIC_CBB_RS_FWD (
+ .clk (clk ),
+ .reset_n (reset_n ),
+ .valid_s (valid_s ),
+ .ready_s (ready_s ),
+ .pload_s (pload_s ),
+ .valid_m (valid_m ),
+ .ready_m (ready_m ),
+ .pload_m (rs_load_m )
+ );
+assign rdata = rs_load_m;
+assign local_req_fifo_rdata = rdata;;
+assign req_cmd_vld = req_vld && req_hop;
+assign req_pack = local_req_fifo_rdata ; 
+assign {req_hop 
+ ,req_top 
+ ,req_rop
+ ,req_pld} = req_pack;
+assign {req_be 
+ ,req_data
+ ,req_tsize
+ ,req_addr
+ ,req_burst
+ ,req_sf
+ ,req_opc
+ ,req_ctidx
+ ,req_did} = req_pld;
+assign req_wrap = req_burst;
+ always @(posedge clk)begin
+ if(req_cmd_vld)begin
+ req_type_hold <= req_type ;
+ req_wrap_hold <= req_wrap ;
+ req_tsize_hold <= req_tsize;
+ req_sf_hold <= req_sf ;
+ end
+ end
+ always @(posedge clk)begin
+ if(req_cmd_vld)begin
+ rsp_tsize <= req_tsize;
+ wrsp_addr <= req_addr[QCP_RSP_ADDR_W-1:0];
+ rsp_burst <= req_burst;
+ rsp_opc <= req_opc ;
+ rsp_ctidx <= req_ctidx;
+ end
+ end
+assign req_type = req_opc[1];
+assign local_req_fifo_avl = valid_m;
+assign req_vld = local_req_fif0_avl && req_block_n;
+assign req_wcmd_vld = req_vld && req_hop && req_type;
+always @(posedge clk)begin
+ if(req_wcmd_vld)
+ cfg_rsp_err_rec <= 1'b0;
+ else if(wreq_access && cfg_rsp_vld && cfg_rsp_err)
+ cfg_rsp_err_rec <= 1'b1;
+end
+endmodule
+module QIC_CBB_RS_FWD
+ #(
+ parameter PLD_W = 8 
+)(
+ input wire clk 
+ ,input wire reset_n
+ ,input wire valid_s 
+ ,output wire ready_s 
+ ,input wire [PLD_W-1:0] pload_s 
+ ,output reg valid_m 
+ ,input wire ready_m 
+ ,output reg [PLD_W-1:0] pload_m 
+ );
+ always @(posedge clk or negedge reset_n)begin
+ if(reset_n == 1'b0)
+ valid_m <= 1'b0;
+ else if(valid_s || ready_s)
+ valid_m <= valid_s;
+ end 
+ assign ready_s = ready_m || ~valid_m;
+ always @(posedge clk)begin 
+ if(valid_s && ready_s)
+ pload_m <= pload_s;
+ end 
+endmodule
+/*SGDC : 
+current_design TOP
+clock -name clk
+set_case_analysis -name cfg_rsp_err -value 0
+*/
+/*SDC : 
+set_top -module TOP
+create_clock -name TOP/clk [get_ports TOP/clk]
+set_case_analysis -objects [get_ports TOP/cfg_rsp_err] 0
+*/
+
