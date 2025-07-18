@@ -1,55 +1,44 @@
-链接	问题单号	简要描述	严重程度	当前状态	B版本	当前处理人	创建时间	创建人	备注
-打开	DTS2025061931041	【ECDC】【GUI】【优化】【射频】【NA】现象简述：打开运行完成后的工程，通过菜单栏打开日志文件，打开的日志信息与预期不符	一般	测试人员回归测试	Nile V200R001C00B007	fanlijie WX1088815	2025-06-19 20:31:25	fanlijie WX1088815	
-打开	DTS2025061626489	【ECDC】【CDC】【GUI】【Gen04-m201】【QualMergesOtherSrc】QualMergesOtherSrc的增量原理图错误	一般	关闭	Nile V200R001C00B007		2025-06-16 16:58:19	liuruifeng WX1317928	
-打开	DTS2025061231608	【ECDC】【CDC】【GUI】【射频3拍】【ChyDataBusDiffEnable】ChyDataBusDiffEnable的原理图错误	一般	关闭	Nile V200R001C00B007		2025-06-12 19:19:17	liuruifeng WX1317928	
-打开	DTS2025061120274	【ECDC】【GUI】【功能】【Gen01-m7】【AcUnsyncDataPath】SrcMuxSelPin的原理图Source到Destination、qualifier到crossing-path的路径全是断开的	一般	关闭	Nile V200R001C00B007		2025-06-11 15:18:56	xiongliuling WX1313645	
-打开	DTS2025060525582	【ECDC】【CDC】【GUI】【Gen01-m007】【MuxSelect】增量原理图错误	一般	关闭	Nile V200R001C00B007		2025-06-05 19:12:50	liuruifeng WX1317928	
-打开	DTS2025060518958	【ECDC】【GUI】【需求/优化】【Gen01-m007】【NA】现象简述:建议完整显示原理图中的obj name	提示	开发人员实施修改	Nile V200R001C00B007	yinyihao WX1311860	2025-06-05 16:05:39	zuowanlin WX1313646	
-打开	DTS2025060513718	【ECDC】【CDC】【GUI】【Gen01-m007】【NA】通过load session打开的增量原理图是不完整的	一般	关闭	Nile V200R001C00B007		2025-06-05 14:46:01	caojiarong WX1345960	
-打开	DTS2025060416802	【ECDC】【CDC】【GUI】【Gen01-m7】【NA】原理图中期望有类似于A工具的from和to的功能，在from和to的位置填上obj，可以一键展示其连接关系	一般	关闭	Nile V200R001C00B007		2025-06-04 15:26:05	xiongliuling WX1313645	
-打开	DTS2025060416360	【ECDC】【CDC】【GUI】【Gen01-m7】【NA】原理图中期望将对应message的reason显示出来，与A工具保持一致	一般	关闭	Nile V200R001C00B007		2025-06-04 15:16:44	xiongliuling WX1313645	
-打开	DTS2025053036035	【ECDC】【GUI】【优化】【Gen01-m011】【NA】现象简述:原理图优化建议	一般	关闭	Nile V200R001C00B007		2025-05-30 16:42:25	zuowanlin WX1313646	
-打开	DTS2025052919968	【ECDC】【GUI】【优化】【射频】【NA】现象简述：将模式设置为深色模式时，部分组件显示不清楚	一般	关闭	Nile V200R001C00B007		2025-05-29 14:26:34	fanlijie WX1088815	
-打开	DTS2025052827169	【ECDC】【GUI】【优化】【门禁】【NA】现象简述:无法编辑源码	一般	关闭	Nile V200R001C00B007		2025-05-28 17:03:58	zuowanlin WX1313646	
-打开	DTS2025052733351	【ECDC】【CDC】【GUI】【Gen04-m201】【ValidGate】ValidGate的增量原理图存在问题	一般	关闭	Nile V200R001C00B007		2025-05-27 19:12:06	liuruifeng WX1317928	
-打开	DTS2025052315956	【ECDC】【CDC】【GUI】【Gen01-m001】【RecirculationMux】增量原理图过于冗余	一般	关闭	Nile V200R001C00B007		2025-05-23 14:38:58	liuruifeng WX1317928	
-打开	DTS2025051433293	【ECDC】【GUI】【NA】【Gen01-m010】【AcUnsyncDataPath】QualMergesOtherSrc应该把两条source都显示出来，更方便直观	一般	关闭	Nile V200R001C00B007		2025-05-14 17:23:28	xiongliuling WX1313645	
-打开	DTS2025051237170	【ECDC】【GUI】【优化】【Gen04-m201】【NA】现象简述:属性中的多个obj的优化建议	一般	关闭	Nile V200R001C00B007		2025-05-12 20:05:58	zuowanlin WX1313646	
-打开	DTS2025050811038	【ECDC】【GUI】【优化】【射频】【SetupAsyncClkConvOnMux】现象简述：增量原理图未画出clock的源头	一般	关闭	Nile V200R001C00B007		2025-05-08 10:52:27	zuowanlin WX1313646	
-打开	DTS2025050717855	【ECDC】【GUI】【优化】【门禁】【NA】现象简述：执行的命令没有返回到下一行，无法判断命令是否执行完成	一般	关闭	Nile V200R001C00B007		2025-05-07 15:51:50	zuowanlin WX1313646	
-打开	DTS2025042816071	【ECDC】【CDC】【GUI】【Gen04-m201】【ChyDataBusDiffEnable】点击ChyDataBusDiffEnabled的增量原理图，稳定crash	一般	关闭	Nile V200R001C00B007		2025-04-28 15:39:59	liuruifeng WX1317928	
-打开	DTS2025042725875	【ECDC】【GUI】【优化】【射频】【NA】现象简述：将模式设置为深色模式时，菜单栏中的按钮显示不清楚	一般	关闭	Nile V200R001C00B007		2025-04-27 18:13:04	fanlijie WX1088815	
-打开	DTS2025042725853	【ECDC】【GUI】【优化】【射频】【NA】现象简述：深色模式下，将源码展示框中的底色设置为浅色，代码颜色显示为深色	一般	关闭	Nile V200R001C00B007		2025-04-27 18:11:24	fanlijie WX1088815	
-打开	DTS2025042725805	【ECDC】【GUI】【优化】【射频】【NA】现象简述：通过GUI打开手册，关闭GUI后，手册未自动关闭；且手册中的其他章节显示为空白	一般	关闭	Nile V200R001C00B007		2025-04-27 18:08:45	fanlijie WX1088815	
-打开	DTS2025042724489	【ECDC】【GUI】【优化】【射频】【NA】现象简述：在GUI界面通过右键打开工具内置编辑器，关闭GUI后，GUI正常关闭，但是内置的编辑器没有关闭	一般	关闭	Nile V200R001C00B007		2025-04-27 17:34:47	fanlijie WX1088815	
-打开	DTS2025042724091	【ECDC】【GUI】【性能】【射频】【NA】现象简述：在后台终端通过gvim等编辑器编辑源码后，源码展示框界面自适应刷新存在性能问题，大约需要10s左右	一般	关闭	Nile V200R001C00B007		2025-04-27 17:27:17	fanlijie WX1088815	
-打开	DTS2025042723214	【ECDC】【GUI】【优化】【射频】【NA】现象简述：选中一条告警waive后，再将对应的Rule提交waive。waive界面的数量显示错误	一般	关闭	Nile V200R001C00B007		2025-04-27 17:08:34	fanlijie WX1088815	
-打开	DTS2025042722465	【ECDC】【GUI】【优化】【射频】【NA】现象简述：打开运行完成后的工程，通过菜单栏打开日志文件，文件中的内容为最新的操作日志文件，而非工具执行检查时生成的日志文件；期望显示工程对应的log日志信息	一般	关闭	Nile V200R001C00B007		2025-04-27 16:55:11	fanlijie WX1088815	
-打开	DTS2025042722281	【ECDC】【GUI】【优化】【射频】【NA】现象简述：源码展示界面的行号显示，因视觉差异导致用户看起来感觉底色是斜的，期望将行号修改为右对齐	一般	关闭	Nile V200R001C00B007		2025-04-27 16:52:22	fanlijie WX1088815	
-打开	DTS2025042520969	"【ECDC】【GUI】【优化建议】【射频】【NA】现象简述：2025.02.26-优化建议-1-----添加按钮
-"	一般	关闭	Nile V200R001C00B007		2025-04-25 15:16:57	zuowanlin WX1313646	
-打开	DTS2025042307057	【ECDC】【GUI】【enhance】【NA】【NA】现象简述：在waive配置界面按照文件等其他方式提交waive的时候未显示到waive窗口	一般	关闭	Nile V200R001C00B007		2025-04-23 10:30:28	zuowanlin WX1313646	
-打开	DTS2025042122659	【ECDC】【CDC】【GUI】【Gen04-m201】【ChyDiffSrcConv】ChyDiffSrcConv增量原理图错误	一般	关闭	Nile V200R001C00B007		2025-04-21 19:34:18	liuruifeng WX1317928	
-打开	DTS2025041633057	【ECDC】【GUI】【功能】【Gen01-m009】【AcUnsyncDataPath】增量原理图显示pair有误	一般	关闭	Nile V200R001C00B007		2025-04-16 17:11:29	shangyihang WX1375434	
-打开	DTS2025041627010	"【ECDC】【GUI】【功能】【Gen01-m009】【None】Enno的AcSyncDataPath增量原理图断连
-"	一般	关闭	Nile V200R001C00B007		2025-04-16 15:53:22	shangyihang WX1375434	
-打开	DTS2025041610816	【ECDC】【CDC】【GUI】【Gen04-m201】【GUI】查看增量原理图导致工具crash	一般	关闭	Nile V200R001C00B007		2025-04-16 10:41:22	liuruifeng WX1317928	
-打开	DTS2025041026894	【ECDC】【GUI】【功能】【Gen01-m001】【None】增量原理图搜索栏中搜索任意一个DFF obj，GUI显示一个没有任何连接的verfic_dff	一般	关闭	Nile V200R001C00B007		2025-04-10 19:37:39	shangyihang WX1375434	
-打开	DTS2025040324990	【ECDC】【GUI】【需求】【射频】【NA】现象简述：搜索时搜索的顺序异常	一般	关闭	Nile V200R001C00B007		2025-04-03 16:26:20	zuowanlin WX1313646	
-打开	DTS2504020032429	【ECDC】【GUI】【非需求问题】【射频】【sava_session】现象简述：参数问题（save_session）	一般	关闭	Nile V200R001C00B007		2025-04-02 15:24:47	zuowanlin WX1313646	
-打开	DTS2504020032372	【ECDC】【GUI】【需求】【射频】【NA】现象简述：检查时指定顶层错误，修改指定的顶层后重新执行检查失败	一般	关闭	Nile V200R001C00B007		2025-04-02 15:22:40	zuowanlin WX1313646	
-打开	DTS2504020032209	【ECDC】【GUI】【需求】【射频】【SetupClkInferred】现象简述：选中告警为约束文件的告警信息，右键选择“open in source"，会弹窗提示无法打开文件	一般	关闭	Nile V200R001C00B007		2025-04-02 15:18:52	zuowanlin WX1313646	"和樊李杰沟通，发现家里case和现场射频case均无法复现问题，需要再次确认问题点
-"
-打开	DTS2025032531846	"【ECDC】【GUI】【crash】【Gen01-m009】【ChySameSrcConvExcSeq】GUI crash
-"	一般	关闭	Nile V200R001C00B007		2025-03-25 17:20:01	shangyihang WX1375434	
-打开	DTS2025031425120	【ECDC】【GUI】【功能】【自建】【None】after open project, exit gui will crash	严重	关闭	Nile V200R001C00B007		2025-03-14 10:59:41	shangyihang WX1375434	
-打开	DTS2025031424274	【ECDC】【GUI】【功能】【None】【None】Configure Message window, some message id not have doc	一般	关闭	Nile V200R001C00B007		2025-03-14 10:44:34	shangyihang WX1375434	
-打开	DTS2025031423462	【ECDC】【GUI】【性能】【射频】【None】Optimization of performance issues	一般	关闭	Nile V200R001C00B007		2025-03-14 10:26:59	shangyihang WX1375434	
-打开	DTS2025031423147	【ECDC】【GUI】【功能】【门禁】【None】Incorrect log file acquisition	一般	关闭	Nile V200R001C00B007		2025-03-14 10:20:04	shangyihang WX1375434	
-打开	DTS2025031333320	【ECDC】【GUI】【功能】【门禁】【ChyDataBusDiffEnable】增量电路图中mark重复	一般	关闭	Nile V200R001C00B007		2025-03-13 21:56:16	shangyihang WX1375434	
-打开	DTS2025031333005	【ECDC】【GUI】【功能】【自建】【SetupClkMuxNotRcvClk】SetupClkMuxNotRcvClk的增量电路图里，port未显示	一般	关闭	Nile V200R001C00B007		2025-03-13 21:37:38	shangyihang WX1375434	
-打开	DTS2025031332900	【ECDC】【GUI】【功能】【自建】【None】取消勾选配置好的waive条件，再去waive相同的message，在Configure Waivers界面会添加相同的Filter 	一般	关闭	Nile V200R001C00B007		2025-03-13 21:32:00	shangyihang WX1375434	
-打开	DTS2025031332567	【ECDC】【GUI】【功能】【门禁】【None】exit gui，returned 0	一般	关闭	Nile V200R001C00B007		2025-03-13 21:15:57	shangyihang WX1375434	
-打开	DTS2025031319679	【ECDC】【GUI】【功能】【门禁】【None】GUI界面右键菜单功能异常	一般	关闭	Nile V200R001C00B007		2025-03-13 16:21:13	shangyihang WX1375434	
-打开	DTS2025031319632	【ECDC】【GUI】【功能】【门禁】【None】waive显示优化	一般	关闭	Nile V200R001C00B007		2025-03-13 16:20:32	shangyihang WX1375434	
-打开	DTS2025031319116	【ECDC】【GUI】【功能】【门禁】【None】增加waive界面功能	一般	关闭	Nile V200R001C00B007		2025-03-13 16:13:24	shangyihang WX1375434	
+序号	类型	描述	备注
+1	性能优化	"【性能问题优化】打开工程（APP_CORE）时，耗时283秒，期望优化
+【性能问题优化】APP_CORE模块的GUI界面关闭后，在shell界面使用exit退出shell时，耗时20s左右才会完全退出"	"打开GUI加载结果数据
+ECDC：耗时283秒，sessiondir大小499M
+竞品：总耗时2分37秒，reports大小349M
+竞品工具详细打开情况：（不做任何操作）
+①输入命令后3sGUI打开前的logo的那个窗口显示；
+②17s的时候GUI界面打开，告警信息界面已经可以报了哪些Rule及message信息。但源码展示和file、instance等信息还在加载
+③2分37秒的时候左下角显示Ready，界面再没有显示什么加载的动画等内容"
+2	优化建议	新建工程时，参数配置应该均为默认参数配置，而不是继承了前一个工程配置，包括之前的log日志	
+3	优化建议	电路图按钮位置建议优化：参照竞品工具，在violation tree界面添加电路图标识	
+4	优化建议	waive message中read_cdc、check_cdc节点后可以加上告警数量	
+5	问题	PATH的两个输入框周边有一圈红框，输入搜索内容后点击find界面无任何变化（操作步骤：输入搜索内容后，点击start、end后，在输入搜索内容）	
+6	优化建议	PATH功能当前不支持穿过触发器trace路径，建议添加一个参数控制trace路径时是否穿过触发器	
+7	优化建议	PATH后添加一个选择框，输入框中参照竞品工具，选择过滤条件（触发器、LATCH、黑盒）	
+8	优化建议	增量模式仅保留上一次告警用来进行增量对比即可，其余的告警结果并不太关注	
+9	优化建议	在规则集配置界面打开帮助信息，但是界面无法进行操作，如果需要查看的话需要先关闭配置界面	
+10	问题	从手册及help可以看到，-mfcu及-elaborate_top两个参数已经删除，但在read_design界面导入文件后仍会自动添加这两个参数。期望保持一致	
+11	优化建议	"将GUI设置为深色模式，部分界面布局、颜色需要优化
+①Web browser界面的帮助文档：信息概述、信息详述、信息等级、描述为黑色加粗，在背景色为黑色的情况下，在视觉效果上看起来效果不好，期望优化（竞品工具此处背景色为灰色）
+②Web browser界面的帮助文档：文档中的超链接为黑底蓝字，感觉刺眼且会让人看不清。期望优化
+③滚动条颜色统一并优化：Web browser界面的滚动条与其他位置的滚动条颜色不一致；其余位置的滚动条为黑色，看不清，建议参照竞品工具将底色设置为灰色
+④Message summary界面中的表格边框看不清"	
+12	优化建议	界面窗口优化：Attributes窗口有两个，建议优化掉一个	会议上给出一种方式：在电路图没有悬浮显示时，右键菜单中不会让Attributes窗口弹出，只有在电路图悬浮显示时，右键菜单中才有按钮控制是否弹出
+13	问题	"关闭gui后，终端返回segmentation fault
+操作步骤：
+① 打开项目工程（项目工程中将参数配置进行了修改）
+② 关闭工程
+③ 新建工程，配置设计文件及约束文件，执行检查（此时提示read_cdc错误）
+④ 关闭GUI（此时复现问题）"	
+14	问题	"Edit-->GUI Name需设置显示范围
+详细描述：点击菜单栏Edit-->GUI Name时，设置GUI Name时，输入特别长的字符串，点击ok后GUI界面上方仅显示了部分。（设置范围后手册需说明取值范围）"	
+15	问题	"Edit-->find_objects界面搜索完成后右键菜单功能异常
+详细描述：Edit-->find_objects界面搜索完成后右键菜单中的文件电路图和告警电路图点击后无反应，定位源码位置按钮置灰不可点击"	
+16	问题	Setting界面设置字体大小后，标题框需要自适应变化，否则会显示不全	
+17	问题	"用户手册：
+源码展示窗口中标记行号的位置之前优化过，当前为右对齐，手册中的图示为优化前的，需要手册刷新。例如：152页"	
+18	问题	"用户手册：
+建议补充说明：跳过项目创建于运行的前提是在CLI界面执行检查完成后直接启动GUI。避免出现在CLI界面运行完成后退出，重新使用命令启动GUI发现没有报错信息的情况"	手册中关于引导用户可跳过流程图中的说明处都需要补充
+19	优化建议	仅支持vim编辑器，期望添加一个其他的编辑器（之前的版本还有一个工具自带的编辑器）	优先级低
+20	优化建议	waive message中期望添加上用户自定义的备注信息/默认的备注信息	建议参考竞品工具
+21	问题	若下层模块电路图较大时，进入下层模块时会有进度条显示，但从界面上看到有花屏的情况	已知问题，但没有定位到问题原因。不影响使用，优先低。若连续几个版本此问题未重现，则默认问题解决
+22	优化建议	电路图中没有显示net信号名，期望添加显示	"当前可使用鼠标悬浮的方式查看net名，或者通过GUI下方的显示框中看到net名
+待用户导入后根据用户需求再确认是否需要显示net名"
