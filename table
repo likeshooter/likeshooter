@@ -1,19 +1,17 @@
-rule	当前对比方式	宽松对比
-ChyAcSyncMultiTimes : ["Ac_coherency06"],	现在对比中拿了pin1（pin1）、pinlist3（multi synchronizer）；门禁中没有比对上的都是一些综合差异	宽松方式就是只拿source，只关注source被多次同步即可
-SetupClkUndefined : ["Setup_clockreset01"],	只有一个obj（TOP）	无
-SetupRstUndefined : ["Setup_clockreset01"],	只有一个obj（TOP）	无
-SetupClkNetUndefined : ["Clock_info03a"],	只有一个obj（clk_obj）	无
-SetupAsyncClkConvOnMux : ["Clock_info05"],		"1、不区分clock_info05/05b
-2、e_clk_list包含s_clk_list
-3、对于multi mux的，我们会报多条，会有一条是报全部的clock，如果这条包含了s_clk_list，那这其他的msg也自动匹配"
-SetupAsyncClkConvOnComb : ["Clock_info05b"],		
-SetupClkMuxNotRcvClk : ["Clock_info05c"],		"1、比mux net
-2、比文件名加行号
-3、只比文件名
-4、综合问题：用sg报的那个mux net在我们工具中去确认我们综合的是不是mux，如果不是则是综合问题
-5、证明我们是mux/verific mux module，mux out pin上有clock，但是我们报的mux data pin没有clock"
-SetupConstraintConflict : ["Setup_check01"],		主要是通配符（Diff104）的问题，把
-SetupInputMultiClkSampled : ["Clock_sync05", "Clock_sync05a"],		
-SetupOutputMultiClkDriven : ["Clock_sync06"],		
-SetupRstSenseMissing : ["Ac_resetvalue01"],		
-SetupRstNetUndefined : ["Reset_info09a"]	只有一个obj（clk_obj）	无
+本周DTS迭代数据	现存	新增	关闭	状态&进展	DTS信息
+门禁	0	0	0		
+射频	1	0	0		DTS2025031332374（depth为0的性能问题）
+18XXE	8	2	0	"新增：DTS2025090141958（HIS_TOP，漏报ac）
+DTS2025090142402（APP_CORE，ac原理图优化）"	"DTS2025073118481（AO_SUB，漏报setupConstraintConflict）
+DTS2025073106523（AO_SUB,误报Setup_port01）
+DTS2025072541380（HIPHY_SUB，误报常值）
+DTS2025072535072（AO_SUB，误报ChySameSrcConvExcSeq）
+DTS2025072528551（AO_SUB，误报ChySameSrcConvInSeq汇聚点）
+DTS2025072225672（HIPHY_SUB，误报Setup_port01）"
+18XX	2	0	0		
+LXXXV300	25	0	6	关闭：DTS：6	
+UXXC	1	0	0		DTS2025070923946（性能）
+GUI/DB	7	0	0		
+导入	7	2	0	"新增：DTS2025082928473（性能，lint_check crash)
+DTS2025082928473(漏报AcUnsync）"	
+总计	51	4	6		
