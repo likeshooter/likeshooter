@@ -1,17 +1,17 @@
-本周DTS迭代数据	现存	新增	关闭	状态&进展	DTS信息
+本周DTS迭代数据	现存	新增	关闭	状态&进展	DTS信息（现存）
 门禁	0	0	0		
-射频	1	0	0		DTS2025031332374（depth为0的性能问题）
-18XXE	8	2	0	"新增：DTS2025090141958（HIS_TOP，漏报ac）
-DTS2025090142402（APP_CORE，ac原理图优化）"	
-18XX	2	0	0		
-LXXXV300	25	0	6	关闭：DTS：6	"DTS2025073118481（AO_SUB，漏报setupConstraintConflict）
-DTS2025073106523（AO_SUB,误报Setup_port01）
-DTS2025072541380（HIPHY_SUB，误报常值）
-DTS2025072535072（AO_SUB，误报ChySameSrcConvExcSeq）
-DTS2025072528551（AO_SUB，误报ChySameSrcConvInSeq汇聚点）
-DTS2025072225672（HIPHY_SUB，误报Setup_port01）"
+射频	2	1	0	新增：DTS2025090303461（cfg1_1 漏报ChyDataBusDiffEnable）	"DTS2025031332374（depth为0的性能问题）
+DTS2025090303461（cfg1_1 漏报ChyDataBusDiffEnable）"
+18XXE	10	2	0	"新增：DTS2025090215860（APP_CORE SetupDataTiedToConst合并问题）
+DTS2025090223282（APP_CORE 误报SetupBBoxPinFullyConstrained constraint）"	"DTS2025090141958（HIS_TOP，漏报ac）
+DTS2025090142402（APP_CORE，ac原理图优化）"
+18XX	3	1	0	新增：DTS2025090226177（NFI_TOP   误报ChyDataBusDiffSyncScheme	
+LXXXV300	27	4	1	"新增：DTS2025090227988（AO_SUB 误报MissingSynchronizer（AC））
+DTS2025090317207（PG_SUB 误报SetupInputMultiClkSampled）
+DTS2025090319804（AO_SUB 漏报ValidGate）
+DTS2025090321573（PG_SUB 漏报SetupOutputMultiClkDriven）"	
 UXXC	1	0	0		DTS2025070923946（性能）
 GUI/DB	7	0	0		
-导入	7	2	0	"新增：DTS2025082825307（lint_check crash)
+导入	8	0	0	"新增：DTS2025082825307（lint_check crash)
 DTS2025082928473(漏报AcUnsync）"	
-总计	51	4	6	问题单未关闭：51/375；漏报：10； 误报26； 性能：6；其他：9	develop：4； 审核：14； 开发修改：33
+总计	58	8	1	问题单未关闭：58/382；漏报：13； 误报30； 性能：6；其他：9	develop：8； 审核：22； 开发修改：28
